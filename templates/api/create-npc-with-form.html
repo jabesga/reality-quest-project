@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Create NPC</title>
+</head>
+<body>
+<form id="create_npc_form" method="post" action="/realityquest/npc/">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create NPC">
+
+    <br><br><img id="portrait_image" src="{% static 'images/1.jpg' %}" name="portrait"/>
+</form>
+
+<script>
+    document.forms['create_npc_form'].elements['portrait_style'].onchange = function(e) {
+        if(document.forms['create_npc_form'].elements['portrait_style'].value == 1){
+            document.getElementById('portrait_image').src = "{% static 'images/1.jpg' %}";
+        }
+        else if(document.forms['create_npc_form'].elements['portrait_style'].value == 2){
+            document.getElementById('portrait_image').src = "{% static 'images/2.jpg' %}";
+        }
+        else if(document.forms['create_npc_form'].elements['portrait_style'].value == 3){
+            document.getElementById('portrait_image').src = "{% static 'images/3.jpg' %}";
+        }
+        else if(document.forms['create_npc_form'].elements['portrait_style'].value == 4){
+            document.getElementById('portrait_image').src = "{% static 'images/4.jpg' %}";
+        }
+        else if(document.forms['create_npc_form'].elements['portrait_style'].value == 5){
+            document.getElementById('portrait_image').src = "{% static 'images/5.jpg' %}";
+        }
+    }
+</script>
+
+</body>
+</html>

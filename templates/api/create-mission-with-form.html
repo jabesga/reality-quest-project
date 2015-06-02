@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Create Mission</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<form id="create_mission_form" method="post" action="/realityquest/mission/">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input id="submit" type="submit" value="Create mission">
+</form>
+
+</body>
+</html>
