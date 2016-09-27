@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import NPC, Quote, Mission
+from .models import NPC, Quote, Mission
 
 
 class QuoteInline(admin.StackedInline):

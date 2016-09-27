@@ -3,7 +3,7 @@ from django.db import models
 
 class NPC(models.Model):
     name = models.CharField(max_length=128, default='')
-    portrait_style = models.IntegerField(max_length=128, default=0)
+    portrait_style = models.IntegerField(default=0)
 
     lat = models.FloatField(max_length=128, default=0)
     lng = models.FloatField(max_length=128, default=0)

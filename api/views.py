@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from models import NPC, Quote, Mission
-from forms import NPCForm, MissionForm
+from .models import NPC, Quote, Mission
+from .forms import NPCForm, MissionForm
 import json
 
 
@@ -95,10 +95,11 @@ def create_mission_with_form(request):
 
 
 def mission(request):
+    mission_form = MissionForm()
     if request.method == 'POST':
         mission_form = MissionForm(data=request.POST)
         if mission_form.is_valid():
             _mission = mission_form.save()
             return HttpResponse('Mission created succesfully (id: ' + str(_mission.id) + ')')
-        else:
-            return render(request, 'api/create-mission-with-form.html', {'form': mission_form})
+
+    return render(request, 'api/create-mission-with-form.html', {'form': mission_form})

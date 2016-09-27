@@ -1,5 +1,5 @@
 from django import forms
-from models import Mission, NPC
+from .models import Mission, NPC
 
 
 class NPCForm(forms.Form):
@@ -27,6 +27,3 @@ class MissionForm(forms.ModelForm):
     class Meta:
         model = Mission
         fields = ('name', 'mission_briefing', 'start_with', 'start_quote', 'end_with', 'end_quote')
-
-
-
